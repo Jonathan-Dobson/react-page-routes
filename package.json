@@ -1,0 +1,29 @@
+{
+  "name": "react-page-routes",
+  "version": "1.0.0",
+  "description": "Control routing from attributes in your component.",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jonathan-Dobson/react-page-routes.git"
+  },
+  "keywords": [
+    "react-router",
+    "routes",
+    "route-array",
+    "less-repeated-code"
+  ],
+  "author": "MrWebDev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jonathan-Dobson/react-page-routes/issues"
+  },
+  "homepage": "https://github.com/Jonathan-Dobson/react-page-routes#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-router-dom": "^6.8.1"
+  }
+}
