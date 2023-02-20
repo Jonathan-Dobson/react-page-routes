@@ -78,7 +78,7 @@ export default routes(
 
 ```javascript
 // App.tsx
-import { Directory } from './Directory.ts'
+import { Directory } from './Directory'
 
 function App() {
   return (
@@ -94,7 +94,7 @@ function App() {
 
 ```javascript
 // App.tsx
-import { Directory } from './Directory.ts'
+import { Directory } from './Directory'
 
 const MyCustomPagesMapper = (E) => (
   <Route element={<E />} path={'path' in E ? String(E.path) : ''} key={String(E.name)} />
@@ -115,3 +115,9 @@ function App() {
   )
 }
 ```
+
+### Done
+
+Thanks for trying out this package.
+Additional questions/ideas/suggestions/contributions are welcome.
+Visit the [github repository issues page](https://github.com/Jonathan-Dobson/react-page-routes/issues), please select relevant  [Labels](https://github.com/Jonathan-Dobson/react-page-routes/labels)
