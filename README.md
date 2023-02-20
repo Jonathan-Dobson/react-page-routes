@@ -1,10 +1,10 @@
 # react-page-routes
 
-Control routing from attributes in your component.
+Simplify coding your `react-router-dom` `<Routes/>` and `<NavLinks/>` by using attributes in your component.
 
 ## How it works
 
-Provide an array of Page Components to be mapped to a React-Router `<Route />` component using a `title` and `path` attribute that should be define in each Page component.
+You provide page components containing `title` and `path` attributes, and pass them to the package as an array. The package will map the pages to a React-Router component and handle setup for both react router-routes and react-router links.
 
 ## Setup
 
@@ -33,13 +33,14 @@ The `title` will be provided to `<NavLink>{title}</Navlink>` in the `NavBar` com
 
 ### 2. Create a directory index of all pages
 
-1.  Import the `directory` function.
-2.  Import all of your page components
-3.  Invoke the `directory` function, passing all of your page components as props.
-4.  `export default` the results
+1.  Create `Directory.ts` file.
+2.  Import the `directory` function.
+3.  Import all of your page components
+4.  Invoke the `directory` function, passing all of your page components as props.
+5.  `export default` the results
 
 ```javascript
-// Example.ts
+// Directory.ts
 
 import { routes } from "react-page-routes";
 import Home from "./Pages/Home";
@@ -52,17 +53,50 @@ export default routes(
 );
 ```
 
-### 3. Use
+### 3. Use in your App
+1. Import the `Directory.ts` file from step 2
+2. Use the `Navbar` for handling `<NavLinks/>`
+3. Use `Pages` for handling react-router `<Routes/>`
 
 ```javascript
 // App.tsx
-import { Example } from "./Example.ts";
+import { Directory } from "./Directory.ts";
 
 function App() {
   return (
     <div>
-      <Example.NavBar />
-      <Example.Pages />
+      <Directory.NavBar />
+      <Directory.Pages />
+    </div>
+  );
+}
+```
+
+### 4. Customize with a Mapper Function (Optional)
+
+```javascript
+// App.tsx
+import { Directory } from "./Directory.ts";
+
+const MyCustomPagesMapper = (E) => (
+  <Route
+    element={<E />}
+    path={"path" in E ? String(E.path) : ""}
+    key={String(E.name)}
+  />
+);
+
+const MyCustomNavBarMapper = (E) => (
+  <NavLink key={E.path.toString()} to={E.path.toString()}>
+    {E.title}
+  </NavLink>
+);
+
+function App() {
+  return (
+    <div>
+      <Directory.NavBar map={MyCustomNavBarMapper} />
+      <Directory.Pages map={MyCustomPagesMapper} />
     </div>
   );
 }
