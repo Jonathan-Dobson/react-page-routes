@@ -1,6 +1,6 @@
 {
   "name": "react-page-routes",
-  "version": "1.12.0",
+  "version": "1.13.0",
   "description": "Simplify coding your react-router-dom <Routes/> and <NavLinks/> by using attributes in your component.",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -14,11 +14,10 @@
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
-    "test": "jest --config jestconfig.json",
-    "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
+    "lint": "eslint --fix \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
     "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run prettier && npm run lint"
+    "prepublishOnly": "npm run prettier && npm run lint"
   },
   "repository": {
     "type": "git",

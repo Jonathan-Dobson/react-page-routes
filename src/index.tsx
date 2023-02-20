@@ -1,23 +1,15 @@
 import { Routes, Route, NavLink } from 'react-router-dom'
 import React, { ReactElement, FC } from 'react'
 
-export type PageType =
-  | (FC & {
-      title: string
-      path: string
-    })
-  | never
-
-export type MapperType = (E: PageType) => ReactElement
-export type MapperPropsType = {
-  map?: MapperType
-}
-
 export function useDirectory(...pages: PageType[]) {
   return {
     Pages: (props: MapperPropsType) => {
       if (pages instanceof Array) {
-        return <Routes>{props.map && 'map' in props ? pages.map(props.map) : pages.map(PageToRoute)}</Routes>
+        if ('map' in props && props.map) {
+          return <Routes>{pages.map(props.map)}</Routes>
+        } else {
+          return <Routes>{pages.map(PageToRoute)}</Routes>
+        }
       }
       return <></>
     },
@@ -37,9 +29,17 @@ export function useDirectory(...pages: PageType[]) {
 }
 
 function PageToRoute(E: PageType): ReactElement {
-  return (
-    <div key={String(E.name)}>
-      <Route element={<E />} path={'path' in E ? String(E.path) : ''} />
-    </div>
-  )
+  return <Route key={String(E.name)} element={<E />} path={'path' in E ? String(E.path) : ''} />
+}
+
+export type PageType =
+  | (FC & {
+      title: string
+      path: string
+    })
+  | never
+
+export type MapperType = (E: PageType) => ReactElement
+export type MapperPropsType = {
+  map?: MapperType
 }
