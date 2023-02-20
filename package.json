@@ -1,7 +1,7 @@
 {
   "name": "react-page-routes",
   "version": "1.0.0",
-  "description": "Control routing from attributes in your component.",
+  "description": "Simplify coding your react-router-dom <Routes/> and <NavLinks/> by using attributes in your component.",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,9 +12,13 @@
   },
   "keywords": [
     "react-router",
-    "routes",
     "route-array",
-    "less-repeated-code"
+    "less-repeated-code",
+    "NavBar",
+    "NavLink",
+    "Routes",
+    "Pages",
+    "typescript"
   ],
   "author": "MrWebDev",
   "license": "ISC",
