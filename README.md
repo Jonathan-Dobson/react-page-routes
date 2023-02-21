@@ -36,11 +36,11 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 Add both `path` and `title` attributes to all of your Page Components.
 
 ```javascript
-Logout.path = '/shop'
-Logout.title = 'Shop Now!'
+Shop.path = '/shop'
+Shop.title = 'Shop Now!'
 
 export default function Shop() {
-  return <h1>Shop Now Page!!!</h1>
+  return <h1>Shop Now Page</h1>
 }
 ```
 
