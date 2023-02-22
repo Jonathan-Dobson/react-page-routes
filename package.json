@@ -1,6 +1,6 @@
 {
   "name": "react-page-routes",
-  "version": "1.13.3",
+  "version": "1.14.0",
   "description": "Simplify coding your react-router-dom <Routes/> and <NavLinks/> by using attributes in your component.",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",

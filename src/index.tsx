@@ -43,3 +43,5 @@ export type MapperType = (E: PageType) => ReactElement
 export type MapperPropsType = {
   map?: MapperType
 }
+
+export const routes = useDirectory
